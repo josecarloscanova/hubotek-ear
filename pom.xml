@@ -6,34 +6,41 @@
    <version>1.0</version>
    <name>hubotek-ear</name>
    <parent>
-      <groupId>root</groupId>
+      <groupId>org.hubotek</groupId>
       <artifactId>project</artifactId>
       <version>1.0</version>
    </parent>
    <dependencies>
       <dependency>
-         <groupId>root.project</groupId>
-         <artifactId>ejbs</artifactId>
+         <groupId>org.hubotek</groupId>
+         <artifactId>model</artifactId>
+         <type>jar</type>
+		 <version>1.0</version>
+		 <exclusions>
+		 	<exclusion>
+		 		<groupId>org.jboss.arquillian.junit</groupId>
+		 		<artifactId>arquillian-junit-container</artifactId>
+		 	</exclusion>
+		 </exclusions>
+      </dependency>
+	  <dependency>
+         <groupId>org.hubotek</groupId>
+         <artifactId>hubotek-ejb</artifactId>
          <type>ejb</type>
-      </dependency>
-      <dependency>
-         <groupId>root.project.servlets</groupId>
-         <artifactId>servlet</artifactId>
-         <type>war</type>
-      </dependency>
-      <dependency>
-         <groupId>root.project</groupId>
-         <artifactId>primary-source</artifactId>
-      </dependency>
-      <dependency>
-         <groupId>root.project.projects</groupId>
-         <artifactId>logging</artifactId>
-      </dependency>
-   </dependencies>
+		 <version>1.0</version>
+		 <exclusions>
+		 	<exclusion>
+		 		<groupId>org.jboss.arquillian.junit</groupId>
+		 		<artifactId>arquillian-junit-container</artifactId>
+		 	</exclusion>
+		 </exclusions>
+	  </dependency>	  
+	</dependencies>	  
    <build>
       <plugins>
          <plugin>
             <artifactId>maven-ear-plugin</artifactId>
+			<version>2.10.1</version>
             <configuration>
                <archive>
                   <manifest>
